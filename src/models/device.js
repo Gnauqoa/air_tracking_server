@@ -1,22 +1,19 @@
 import { Schema, model } from "mongoose";
 
-const sensorSchema = new Schema(
-  {
-    sensor_id: {
-      type: String,
-      required: true,
-    },
-    dust: {
-      type: Number,
-      required: true,
-    },
-    connected: {
-      type: Boolean,
-      required: true,
-    },
+const sensorSchema = new Schema({
+  sensor_id: {
+    type: String,
+    required: true,
   },
-  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
-);
+  dust: {
+    type: Number,
+    required: true,
+  },
+  connected: {
+    type: Boolean,
+    required: true,
+  },
+});
 const recordSchema = new Schema(
   {
     sensor_list: [
@@ -27,6 +24,10 @@ const recordSchema = new Schema(
         },
         dust: {
           type: Number,
+          required: true,
+        },
+        connected: {
+          type: Boolean,
           required: true,
         },
       },
@@ -41,28 +42,17 @@ const deviceSchema = new Schema(
       required: true,
       unique: true,
     },
+    password: {
+      type: String,
+      required: true,
+    },
     connected: {
       type: Boolean,
       required: true,
       default: 0,
     },
-
-    sensor_list: [
-      {
-        sensor: {
-          type: sensorSchema,
-          required: true,
-        },
-      },
-    ],
-    record_history: [
-      {
-        record: {
-          type: recordSchema,
-          required: true,
-        },
-      },
-    ],
+    sensor_list: [sensorSchema],
+    record_history: [recordSchema],
   },
   {
     collection: "device",

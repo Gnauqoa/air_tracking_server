@@ -10,5 +10,4 @@ const pageRouter = express.Router();
 pageRouter.get("/", (req, res) => {
   res.render(join(__dirname, "../views", "index.ejs"));
 });
-
 export default pageRouter;
