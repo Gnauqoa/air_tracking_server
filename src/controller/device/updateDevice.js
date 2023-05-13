@@ -4,7 +4,6 @@ const updateDeviceData = async (req, res, next) => {
   const { device } = req;
   const { device_id, data } = req.body;
   const { sensor_list } = data;
-  
   const old_data = device.sensor_list.map((sensor, index) => ({
     dust: sensor.dust,
     connected: sensor.connected,
