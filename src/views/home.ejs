@@ -5,15 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/home.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs/plugin/relativeTime.min.js"></script>
   <title>Air tracking</title>
 </head>
 
 <body>
-  <input id="id" />
-  <button id="btn"">casc</button>
+  <div class="flex flex-col w-full items-center pt-24 h-screen bg-[#050a08] gap-5">
+    <div id="root" class="flex flex-col items-center md:w-[40%] w-[90%]">
+      <div id="circular-process" class="w-[60px] h-[60px] animate-spin rounded-full circular-process p-[8px]">
+        <div class="w-full h-full bg-[#050a08] rounded-full"></div>
+      </div>
+    </div>
+  </div>
 </body>
 <script src=" ./js/home.js"></script>
 

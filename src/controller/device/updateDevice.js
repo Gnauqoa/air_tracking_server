@@ -1,5 +1,5 @@
 import { DeviceModel } from "../../models/index.js";
-
+import dayjs from "dayjs";
 const updateDeviceData = async (req, res, next) => {
   const { device } = req;
   const { device_id, data } = req.body;
@@ -18,6 +18,12 @@ const updateDeviceData = async (req, res, next) => {
       },
     }
   );
+  global._io.emit("new_device_data", {
+    data: {
+      updated_at: dayjs(),
+      sensor_list: sensor_list,
+    },
+  });
   res.status(200).json({ message: "update success" });
 };
 

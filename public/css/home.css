@@ -1,0 +1,6 @@
+.circular-process {
+  background: conic-gradient(#57bf9c, 270deg, #050a08 0deg);
+}
+.status_bar {
+  transition: 0.5s ease;
+}
