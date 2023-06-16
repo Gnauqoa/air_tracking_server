@@ -16,6 +16,7 @@ const updateDeviceData = async (req, res, next) => {
       res.status(200).json({ message: "update success" });
       return;
     }
+    console.log( device_id, data);
     if (!alert_threshold) alert_threshold = device.alert_threshold;
     const old_data = device.sensor_list.data.map((sensor, index) => ({
       dust: sensor.dust,
