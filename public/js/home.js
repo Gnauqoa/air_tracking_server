@@ -1,6 +1,9 @@
 dayjs.extend(window.dayjs_plugin_relativeTime);
 const max_dust = 500;
-const socket = io();
+const connectionObject = {
+  withCredentials: true,
+};
+const socket = io("", connectionObject);
 let updated_at;
 let cur_sensor_list = [];
 let first_time = 1;
