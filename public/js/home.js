@@ -83,6 +83,10 @@ const createDevice = (device_id, value) => {
         <img src="./icon/icon_location.svg" />
       </div>
     </div>
+    <div id="${device_id}_alert_threshold class="flex flex-row items-center">
+      <div>
+      </div>
+    </div>
     <div id="node_list" class="flex flex-col gap-3">
     </div>
   </div>`;
@@ -100,6 +104,7 @@ setInterval(function () {
   $(`#255_update_time`).html(dayjs(updated_at).fromNow());
 }, 1000);
 socket.on("new_device_data", function (data) {
+  console.log(data);
   const { sensor_list } = data.data;
   updated_at = data.data.updated_at;
   if (!first_time) {
